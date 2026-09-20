@@ -6,7 +6,7 @@ Supports navigation, bookmarks, history, preferences, find-in-page, downloads, p
 
 ## Download
 
-[Download the latest release](https://github.com/evan-luther/netscape/releases/latest). This repository is private; downloads require GitHub access.
+[Download the latest release](https://github.com/evan-luther/netscape/releases/latest).
 
 | Platform | Architectures | Packages |
 | --- | --- | --- |
