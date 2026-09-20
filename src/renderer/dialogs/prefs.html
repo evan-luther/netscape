@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Preferences - Netscape</title>
+<link rel="stylesheet" href="../css/win95.css">
+<link rel="stylesheet" href="dialogs.css">
+</head>
+<body class="w95">
+<div class="w95-window">
+  <div class="w95-titlebar">
+    <img class="w95-titlebar-icon" src="../../assets/icons/netscape-window.svg" alt="">
+    <span class="w95-titlebar-text">Preferences - Netscape</span>
+    <span class="w95-titlebar-btns"><button class="w95-tbtn close" title="Close"></button></span>
+  </div>
+  <div class="w95-dialog-body">
+    <div class="w95-tabs" id="tabs">
+      <button class="w95-tab" data-tab="appearance">Appearance</button>
+      <button class="w95-tab" data-tab="fonts">Fonts</button>
+      <button class="w95-tab" data-tab="colors">Colors</button>
+      <button class="w95-tab" data-tab="network">Network</button>
+      <button class="w95-tab" data-tab="security">Security</button>
+      <button class="w95-tab" data-tab="directory">Directory</button>
+    </div>
+
+    <div class="w95-tabpanel" data-tab="appearance">
+      <fieldset class="w95-groupbox">
+        <legend>Browser Starts With</legend>
+        <div class="dlg-row">
+          <label class="w95-radio"><input type="radio" name="starts" value="blank"> Blank Page</label>
+          <label class="w95-radio"><input type="radio" name="starts" value="home"> Home Page Location:</label>
+          <input class="w95-field dlg-fill" id="p-homepage" type="text">
+        </div>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Toolbar Style</legend>
+        <div class="dlg-row">
+          <label class="w95-radio"><input type="radio" name="tbstyle" value="icons"> Pictures</label>
+          <label class="w95-radio"><input type="radio" name="tbstyle" value="text"> Text</label>
+          <label class="w95-radio"><input type="radio" name="tbstyle" value="both"> Pictures and Text</label>
+        </div>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Link Styles</legend>
+        <label class="w95-check"><input type="checkbox" id="p-underline"> Links are underlined</label>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Images</legend>
+        <label class="w95-check"><input type="checkbox" id="p-images"> Automatically load images</label>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Search</legend>
+        <div class="dlg-row">
+          <label for="p-search">Search URL (%s = query):</label>
+          <input class="w95-field dlg-fill" id="p-search" type="text">
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="w95-tabpanel" data-tab="fonts">
+      <fieldset class="w95-groupbox">
+        <legend>Proportional Font</legend>
+        <div class="dlg-grid">
+          <label>Serif:</label>
+          <select class="w95-select" id="p-serif"></select>
+          <label>Sans-serif:</label>
+          <select class="w95-select" id="p-sans"></select>
+          <label>Size:</label>
+          <select class="w95-select" id="p-size"></select>
+        </div>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Fixed-width Font</legend>
+        <div class="dlg-grid">
+          <label>Font:</label>
+          <select class="w95-select" id="p-fixed"></select>
+          <label>Size:</label>
+          <select class="w95-select" id="p-fixedsize"></select>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="w95-tabpanel" data-tab="colors">
+      <fieldset class="w95-groupbox">
+        <legend>Colors</legend>
+        <div class="dlg-grid">
+          <label>Links:</label><input type="color" id="c-link">
+          <label>Visited Links:</label><input type="color" id="c-visited">
+          <label>Text:</label><input type="color" id="c-text">
+          <label>Background:</label><input type="color" id="c-bg">
+        </div>
+      </fieldset>
+      <label class="w95-check"><input type="checkbox" id="c-override">
+        Always use my colors, overriding document</label>
+    </div>
+
+    <div class="w95-tabpanel" data-tab="network">
+      <fieldset class="w95-groupbox">
+        <legend>Cache</legend>
+        <div class="dlg-grid">
+          <label>Memory Cache:</label>
+          <span><input class="w95-field" id="n-memcache" type="text" size="6"> KB</span>
+          <label>Disk Cache:</label>
+          <span><input class="w95-field" id="n-diskcache" type="text" size="6"> KB</span>
+        </div>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Proxies</legend>
+        <label class="w95-radio"><input type="radio" name="proxy" value="none"> No proxies</label>
+        <label class="w95-radio"><input type="radio" name="proxy" value="manual"> Manual proxy configuration</label>
+        <div class="dlg-grid" style="margin-top:4px">
+          <label>HTTP Proxy:</label><input class="w95-field" id="n-proxyhost" type="text">
+          <label>Port:</label><input class="w95-field" id="n-proxyport" type="text" size="6">
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="w95-tabpanel" data-tab="security">
+      <fieldset class="w95-groupbox">
+        <legend>Show a warning before</legend>
+        <label class="w95-check"><input type="checkbox" id="s-enter"> Entering a secure document space</label>
+        <label class="w95-check"><input type="checkbox" id="s-leave"> Leaving a secure document space</label>
+        <label class="w95-check"><input type="checkbox" id="s-submit"> Submitting a form insecurely</label>
+      </fieldset>
+      <fieldset class="w95-groupbox">
+        <legend>Cookies</legend>
+        <label class="w95-radio"><input type="radio" name="cookies" value="always"> Accept all cookies</label>
+        <label class="w95-radio"><input type="radio" name="cookies" value="sameorigin"> Accept only cookies that get sent back to the originating server</label>
+        <label class="w95-radio"><input type="radio" name="cookies" value="never"> Do not accept cookies</label>
+      </fieldset>
+    </div>
+
+    <div class="w95-tabpanel" data-tab="directory">
+      <fieldset class="w95-groupbox">
+        <legend>Directory Button Locations</legend>
+        <div class="dlg-grid" id="dir-grid">
+          <label>Netscape Home:</label><input class="w95-field" data-dir="netscapeHome" type="text">
+          <label>What's New?:</label><input class="w95-field" data-dir="whatsNew" type="text">
+          <label>What's Cool?:</label><input class="w95-field" data-dir="whatsCool" type="text">
+          <label>Destinations:</label><input class="w95-field" data-dir="destinations" type="text">
+          <label>Net Search:</label><input class="w95-field" data-dir="netSearch" type="text">
+          <label>People:</label><input class="w95-field" data-dir="people" type="text">
+          <label>Software:</label><input class="w95-field" data-dir="software" type="text">
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="dlg-btnrow">
+      <button class="w95-btn is-default" id="ok">OK</button>
+      <button class="w95-btn" id="cancel">Cancel</button>
+      <button class="w95-btn" id="apply">Apply</button>
+      <button class="w95-btn" id="help" disabled>Help</button>
+    </div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script src="prefs.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Document Info - Netscape</title>
+<link rel="stylesheet" href="../css/win95.css">
+<link rel="stylesheet" href="dialogs.css">
+</head>
+<body class="w95">
+<div class="w95-window">
+  <div class="w95-titlebar">
+    <img class="w95-titlebar-icon" src="../../assets/icons/document.svg" alt="">
+    <span class="w95-titlebar-text">Document Info - Netscape</span>
+    <span class="w95-titlebar-btns"><button class="w95-tbtn close" title="Close"></button></span>
+  </div>
+  <div class="w95-dialog-body">
+    <div class="w95-listbox w95-scroll" id="frames" style="flex:none;max-height:110px"></div>
+    <fieldset class="w95-groupbox" style="flex:1;overflow:auto;min-height:0">
+      <legend>Document Info</legend>
+      <div class="di-rows" id="rows"></div>
+    </fieldset>
+    <div class="dlg-btnrow">
+      <button class="w95-btn is-default" id="close">Close</button>
+    </div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script src="documentinfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "netscape-navigator",
+  "productName": "Netscape Navigator",
+  "version": "3.4.0",
+  "description": "Netscape Navigator 3.04 Gold, rebuilt on Chromium.",
+  "type": "commonjs",
+  "main": "src/main/main.js",
+  "homepage": "https://github.com/local/netscape-navigator",
+  "author": {
+    "name": "Netscape Navigator (Chromium Edition)",
+    "email": "navigator@localhost"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "icon": "electron tools/render-icon.js",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  }
+}

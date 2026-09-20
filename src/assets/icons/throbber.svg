@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" shape-rendering="crispEdges">
+  <style>
+    .m{animation:met 2.6s linear infinite}
+    @keyframes met{from{transform:translate(30px,-30px)}to{transform:translate(-30px,30px)}}
+    .t{animation:tw 1.8s steps(2) infinite}
+    @keyframes tw{0%{opacity:1}50%{opacity:.15}100%{opacity:1}}
+  </style>
+  <defs>
+    <clipPath id="f"><rect x="0" y="0" width="34" height="34"/></clipPath>
+  </defs>
+  <rect x="0" y="0" width="34" height="34" fill="#000080"/>
+  <g clip-path="url(#f)">
+    <g class="m" style="animation-delay:0s"><path d="M2 16 L16 2" stroke="#ffffff" stroke-width="2" fill="none"/></g>
+    <g class="m" style="animation-delay:-.4s"><path d="M8 24 L20 12" stroke="#00ffff" stroke-width="2" fill="none"/></g>
+    <g class="m" style="animation-delay:-.8s"><path d="M16 10 L30 -4" stroke="#ffffff" stroke-width="2" fill="none"/></g>
+    <g class="m" style="animation-delay:-1.2s"><path d="M22 22 L34 10" stroke="#00ffff" stroke-width="2" fill="none"/></g>
+    <g class="m" style="animation-delay:-1.6s"><path d="M4 30 L16 18" stroke="#ffffff" stroke-width="2" fill="none"/></g>
+    <g class="m" style="animation-delay:-2s"><path d="M18 34 L30 22" stroke="#00ffff" stroke-width="2" fill="none"/></g>
+    <g class="m" style="animation-delay:-2.3s"><path d="M26 8 L38 -4" stroke="#ffffff" stroke-width="2" fill="none"/></g>
+  </g>
+  <path d="M0 28 Q17 22 34 28 L34 34 L0 34 Z" fill="#008080"/>
+  <path d="M9 5 L13 5 L11 29 L7 29 Z" fill="#ffffff"/>
+  <path d="M23 5 L27 5 L25 29 L21 29 Z" fill="#ffffff"/>
+  <path d="M13 5 L18 5 L21 29 L16 29 Z" fill="#ffffff"/>
+  <rect class="t" x="4" y="4" width="1" height="1" fill="#ffffff"/>
+  <rect class="t" x="12" y="2" width="1" height="1" fill="#ffffff" style="animation-delay:-.6s"/>
+  <rect class="t" x="28" y="5" width="1" height="1" fill="#ffffff" style="animation-delay:-1.2s"/>
+  <rect class="t" x="22" y="3" width="1" height="1" fill="#00ffff" style="animation-delay:-.3s"/>
+  <rect class="t" x="30" y="12" width="1" height="1" fill="#ffffff" style="animation-delay:-.9s"/>
+  <rect class="t" x="3" y="14" width="1" height="1" fill="#ffffff" style="animation-delay:-1.5s"/>
+</svg>

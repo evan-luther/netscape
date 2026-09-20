@@ -1,0 +1,298 @@
+/* Navigator 3.04 chrome layout — sits on top of win95.css.
+   Only layout/metrics here; all colors come from --w95-* variables. */
+
+html, body { height: 100%; margin: 0; }
+
+body.w95 {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.w95-window {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ---- frameless resize hit zones (invisible; below .w95-menu z-index 1000) ---- */
+
+.ns-rz {
+  position: absolute;
+  z-index: 900;
+  -webkit-app-region: no-drag;
+  touch-action: none;
+}
+.ns-rz-n  { top: 0;    left: 8px;  right: 8px;  height: 4px; cursor: ns-resize; }
+.ns-rz-s  { bottom: 0; left: 8px;  right: 8px;  height: 4px; cursor: ns-resize; }
+.ns-rz-e  { right: 0;  top: 8px;   bottom: 8px; width: 4px;  cursor: ew-resize; }
+.ns-rz-w  { left: 0;   top: 8px;   bottom: 8px; width: 4px;  cursor: ew-resize; }
+.ns-rz-ne { top: 0;    right: 0;   width: 8px;  height: 8px; cursor: nesw-resize; }
+.ns-rz-nw { top: 0;    left: 0;    width: 8px;  height: 8px; cursor: nwse-resize; }
+.ns-rz-se { bottom: 0; right: 0;   width: 8px;  height: 8px; cursor: nwse-resize; }
+.ns-rz-sw { bottom: 0; left: 0;    width: 8px;  height: 8px; cursor: nesw-resize; }
+
+/* ---- title bar ---- */
+
+.w95-titlebar {
+  -webkit-app-region: drag;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.w95-tbtn, .w95-titlebar-btns { -webkit-app-region: no-drag; }
+
+/* ---- menu bar ---- */
+
+.w95-menubar { flex: 0 0 auto; }
+
+
+/* ---- toolbars ---- */
+
+.w95-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+}
+
+.w95-toolbar[hidden] { display: none; }
+
+.w95-grip { flex: 0 0 auto; }
+
+/* icon-over-label toolbar buttons (~46x40, 23x21 icon, 11px label) */
+.ns-toolbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  min-width: 46px;
+  height: 40px;
+  padding: 1px 2px;
+  line-height: 1;
+}
+
+.ns-toolicon {
+  width: 23px;
+  height: 21px;
+  display: block;
+}
+
+.ns-toollabel {
+  font-size: 11px;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+.ns-toolbtn.is-disabled {
+  color: var(--w95-gray-text);
+  text-shadow: 1px 1px 0 var(--w95-hilight);
+}
+
+.ns-toolbtn.is-disabled .ns-toolicon {
+  opacity: 0.45;
+  filter: grayscale(100%);
+}
+
+/* toolbar style pref: both | icons | text */
+.ns-nav-bar.is-style-icons .ns-toollabel { display: none; }
+.ns-nav-bar.is-style-icons .ns-toolbtn { height: 26px; }
+.ns-nav-bar.is-style-text .ns-toolicon { display: none; }
+.ns-nav-bar.is-style-text .ns-toolbtn { height: 24px; }
+
+/* throbber pinned to the right edge of the nav toolbar */
+.ns-throbber {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.ns-throbber img { width: 34px; height: 34px; display: block; }
+
+/* ---- location toolbar ---- */
+
+.ns-loc-label { flex: 0 0 auto; padding: 0 4px; }
+
+.ns-loc-field {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 20px;
+  box-sizing: border-box;
+}
+
+.ns-loc-drop {
+  flex: 0 0 auto;
+  width: 18px;
+  min-width: 18px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ns-loc-arrow {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--w95-text);
+}
+
+/* ---- directory buttons toolbar ---- */
+
+.ns-dir-bar { min-height: 26px; }
+
+.ns-dirbtn { padding: 1px 8px; white-space: nowrap; }
+
+/* ---- content region (WebContentsView sits here) ---- */
+
+#content {
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+  background: var(--w95-window);
+  border-top: 1px solid var(--w95-shadow);
+  border-left: 1px solid var(--w95-shadow);
+  border-right: 1px solid var(--w95-hilight);
+  border-bottom: 1px solid var(--w95-hilight);
+  box-shadow:
+    inset 1px 1px 0 var(--w95-dkshadow),
+    inset -1px -1px 0 var(--w95-light);
+  margin: 0 2px;
+  box-sizing: border-box;
+}
+
+#contentFreeze {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  display: none;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
+
+#contentFreeze.is-on {
+  display: block;
+}
+
+/* ---- status bar ---- */
+
+.w95-statusbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  padding: 2px;
+}
+
+.w95-status-panel {
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.w95-status-panel.is-flex { flex: 1 1 auto; }
+
+.ns-key {
+  flex: 0 0 auto;
+  width: 28px;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.ns-key img { width: 16px; height: 16px; display: block; }
+
+.ns-keytip {
+  display: none;
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  padding: 2px 4px;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.ns-key:hover .ns-keytip { display: block; }
+
+.ns-status-text { text-overflow: ellipsis; }
+
+.ns-progress {
+  flex: 0 0 auto;
+  width: 100px;
+  --w95-progress-value: 0%;
+}
+
+.w95-sizegrip { flex: 0 0 auto; align-self: flex-end; cursor: nwse-resize; }
+
+/* ---- popup menus (menubar.js builds these from .w95-menu/.w95-menuitem) ---- */
+
+.w95-menu {
+  position: fixed;
+  z-index: 2000;
+  min-width: 160px;
+}
+
+.w95-menuitem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px 2px 2px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.w95-menuitem.is-active {
+  background: var(--w95-select);
+  color: var(--w95-select-text);
+}
+
+.w95-menuitem.is-active .ns-mi-accel { color: var(--w95-select-text); }
+
+.w95-menuitem.is-disabled .ns-mi-label,
+.w95-menuitem.is-disabled .ns-mi-accel {
+  color: var(--w95-gray-text);
+  text-shadow: 1px 1px 0 var(--w95-hilight);
+}
+
+.w95-menuitem.is-disabled.is-active {
+  background: transparent;
+  color: var(--w95-gray-text);
+}
+
+.ns-mi-check { flex: 0 0 14px; width: 14px; text-align: center; }
+
+.ns-mi-label { flex: 0 1 auto; }
+
+.ns-mi-accel {
+  flex: 1 0 auto;
+  text-align: right;
+  padding-left: 16px;
+  color: var(--w95-text);
+}
+
+.ns-mi-sub {
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid currentColor;
+}

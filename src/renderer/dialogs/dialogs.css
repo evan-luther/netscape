@@ -1,0 +1,65 @@
+/* Layout-only rules shared by all dialogs. Visual styling lives in
+ * ../css/win95.css (A2); this file only arranges dialog-specific structure. */
+
+html, body { margin: 0; overflow: hidden; }
+/* The shell is content-sized so the window can be fit to it. Once window.js
+ * has measured and sized the window it sets data-fill on <body>, pinning the
+ * shell to the window so inner panels/lists fill it exactly. */
+.w95-window { height: auto; box-sizing: border-box; }
+body[data-fill], body[data-fill] > .w95-window { height: 100vh; }
+.w95-titlebar { -webkit-app-region: drag; }
+.w95-titlebar-btns, .w95-tbtn { -webkit-app-region: no-drag; }
+.w95-dialog-body { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+
+/* generic rows */
+.dlg-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+.dlg-row > label:first-child { flex: none; }
+.dlg-row > .w95-radio + .w95-radio { margin-left: 10px; }
+.dlg-fill { flex: 1; min-width: 0; }
+.dlg-btnrow { display: flex; justify-content: flex-end; gap: 6px; padding-top: 8px; }
+.dlg-btnrow .w95-btn { min-width: 72px; }
+.dlg-spacer { flex: 1; }
+.dlg-status { padding: 2px 4px; margin-top: 6px; min-height: 15px; }
+
+/* menubar popups (positioned by JS) */
+.w95-menu { position: fixed; z-index: 1000; min-width: 160px; }
+
+/* tree rows */
+.w95-tree { flex: 1; overflow: auto; min-height: 0; }
+.w95-tree-row { display: flex; align-items: center; white-space: nowrap; }
+.w95-tree-row.is-selected .w95-tree-label {
+  background: var(--w95-select); color: var(--w95-select-text);
+}
+
+/* listbox-as-table (history, documentinfo) */
+.w95-listbox { flex: 1; overflow: auto; min-height: 0; }
+.lst-head { display: flex; position: sticky; top: 0; }
+.lst-head > span { flex: 1; padding: 1px 6px; white-space: nowrap; overflow: hidden; cursor: pointer; }
+.lst-row { display: flex; white-space: nowrap; }
+.lst-row > span { flex: 1; padding: 0 6px; overflow: hidden; text-overflow: ellipsis; }
+.lst-row.is-selected > span { background: var(--w95-select); color: var(--w95-select-text); }
+
+/* prefs notebook panels scroll */
+.w95-tabpanel { flex: 1; overflow: auto; min-height: 0; }
+.dlg-grid { display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; align-items: center; }
+.dlg-grid > label { text-align: right; }
+
+/* find dialog */
+.dlg-find-body { display: flex; gap: 12px; }
+.dlg-find-left { flex: 1; }
+
+/* about */
+.dlg-about { display: flex; gap: 12px; align-items: flex-start; }
+.dlg-about img { width: 64px; height: 64px; }
+
+/* downloads */
+.dl-item { margin-bottom: 10px; }
+
+/* source view */
+.dlg-source-area { flex: 1; min-height: 0; width: 100%; box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace; resize: none; white-space: pre; }
+
+/* documentinfo lower panel */
+.di-rows { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
+.di-rows > .di-k { font-weight: var(--w95-font-bold-weight); white-space: nowrap; }
+.di-rows > .di-v { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

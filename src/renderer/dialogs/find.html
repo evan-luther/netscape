@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Find</title>
+<link rel="stylesheet" href="../css/win95.css">
+<link rel="stylesheet" href="dialogs.css">
+</head>
+<body class="w95">
+<div class="w95-window">
+  <div class="w95-titlebar">
+    <img class="w95-titlebar-icon" src="../../assets/icons/find.svg" alt="">
+    <span class="w95-titlebar-text">Find</span>
+    <span class="w95-titlebar-btns"><button class="w95-tbtn close" title="Close"></button></span>
+  </div>
+  <div class="w95-dialog-body">
+    <div class="dlg-find-body">
+      <div class="dlg-find-left">
+        <div class="dlg-row">
+          <label for="find-text">Find what:</label>
+          <input class="w95-field dlg-fill" id="find-text" type="text">
+        </div>
+        <div class="dlg-row">
+          <label class="w95-check"><input type="checkbox" id="find-case"> Match case</label>
+        </div>
+        <fieldset class="w95-groupbox">
+          <legend>Search Direction</legend>
+          <label class="w95-radio"><input type="radio" name="find-dir" id="find-up"> Up</label>
+          <label class="w95-radio"><input type="radio" name="find-dir" id="find-down" checked> Down</label>
+        </fieldset>
+      </div>
+    </div>
+    <div class="dlg-status" id="find-status"></div>
+    <div class="dlg-btnrow">
+      <button class="w95-btn is-default" id="find-next">Find Next</button>
+      <button class="w95-btn" id="find-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script src="find.js"></script>
+</body>
+</html>

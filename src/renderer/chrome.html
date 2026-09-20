@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'">
+<title>Netscape</title>
+<link rel="stylesheet" href="css/win95.css">
+<link rel="stylesheet" href="css/navigator.css">
+</head>
+<body class="w95">
+<div class="w95-window">
+
+  <div class="w95-titlebar" id="titlebar">
+    <img class="w95-titlebar-icon" id="titleIcon" src="../assets/icons/netscape-window.svg" alt="">
+    <span class="w95-titlebar-text" id="titleText">Netscape</span>
+    <span class="w95-titlebar-btns">
+      <button class="w95-tbtn min" id="btnMin" title="Minimize"></button>
+      <button class="w95-tbtn max" id="btnMax" title="Maximize"></button>
+      <button class="w95-tbtn close" id="btnClose" title="Close"></button>
+    </span>
+  </div>
+
+  <div class="w95-menubar" id="menubar"></div>
+
+  <div class="w95-toolbar ns-nav-bar" id="navBar">
+    <span class="w95-grip"></span>
+    <button class="w95-btn ns-toolbtn" id="tbBack" data-cmd="go.back">
+      <img class="ns-toolicon" src="../assets/icons/back.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Back</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" id="tbForward" data-cmd="go.forward">
+      <img class="ns-toolicon" src="../assets/icons/forward.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Forward</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="go.home">
+      <img class="ns-toolicon" src="../assets/icons/home.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Home</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="view.source">
+      <img class="ns-toolicon" src="../assets/icons/edit.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Edit</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="view.reload">
+      <img class="ns-toolicon" src="../assets/icons/reload.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Reload</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="view.loadImages">
+      <img class="ns-toolicon" src="../assets/icons/images.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Images</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="file.openLocation">
+      <img class="ns-toolicon" src="../assets/icons/open.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Open</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="file.print">
+      <img class="ns-toolicon" src="../assets/icons/print.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Print</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" data-cmd="edit.find">
+      <img class="ns-toolicon" src="../assets/icons/find.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Find</span>
+    </button>
+    <button class="w95-btn ns-toolbtn" id="tbStop" data-cmd="go.stop">
+      <img class="ns-toolicon" src="../assets/icons/stop.svg" alt="" draggable="false">
+      <span class="ns-toollabel">Stop</span>
+    </button>
+    <span class="ns-throbber" id="throbber">
+      <img id="throbberImg" src="../assets/icons/throbber-idle.svg" alt="Netscape" draggable="false">
+    </span>
+  </div>
+
+  <div class="w95-toolbar ns-loc-bar" id="locBar">
+    <span class="w95-grip"></span>
+    <label class="ns-loc-label" id="locLabel" for="locField">Location:</label>
+    <input class="w95-field ns-loc-field" id="locField" type="text" autocomplete="off" spellcheck="false">
+    <button class="w95-btn ns-loc-drop" id="locDrop" title="Recent locations"><span class="ns-loc-arrow"></span></button>
+  </div>
+
+  <div class="w95-toolbar ns-dir-bar" id="dirBar">
+    <span class="w95-grip"></span>
+    <button class="w95-btn ns-dirbtn" data-dir="whatsNew">What's New?</button>
+    <button class="w95-btn ns-dirbtn" data-dir="whatsCool">What's Cool?</button>
+    <button class="w95-btn ns-dirbtn" data-dir="destinations">Destinations</button>
+    <button class="w95-btn ns-dirbtn" data-dir="netSearch">Net Search</button>
+    <button class="w95-btn ns-dirbtn" data-dir="people">People</button>
+    <button class="w95-btn ns-dirbtn" data-dir="software">Software</button>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="w95-statusbar">
+    <span class="w95-status-panel ns-key" id="keyPanel">
+      <img id="keyIcon" src="../assets/icons/key-broken.svg" alt="" draggable="false">
+      <span class="w95-tip ns-keytip" id="keyTip">Netscape has not detected a secure document</span>
+    </span>
+    <span class="w95-status-panel is-flex ns-status-text" id="statusText">Document: Done</span>
+    <span class="w95-progress ns-progress" id="progress"></span>
+    <span class="w95-sizegrip"></span>
+  </div>
+
+  <span class="ns-rz ns-rz-n"  data-rz="n"></span>
+  <span class="ns-rz ns-rz-s"  data-rz="s"></span>
+  <span class="ns-rz ns-rz-e"  data-rz="e"></span>
+  <span class="ns-rz ns-rz-w"  data-rz="w"></span>
+  <span class="ns-rz ns-rz-ne" data-rz="ne"></span>
+  <span class="ns-rz ns-rz-nw" data-rz="nw"></span>
+  <span class="ns-rz ns-rz-se" data-rz="se"></span>
+  <span class="ns-rz ns-rz-sw" data-rz="sw"></span>
+
+</div>
+<script src="js/menubar.js"></script>
+<script src="js/chrome.js"></script>
+</body>
+</html>

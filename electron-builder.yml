@@ -1,0 +1,66 @@
+appId: com.netscape.navigator
+productName: Netscape Navigator
+copyright: Copyright © 1996 Netscape Communications Corporation. All rights reserved.
+
+directories:
+  output: dist
+  buildResources: build
+
+files:
+  - src/**/*
+  - package.json
+  - build/icon.*
+  - "!tools/**"
+  - "!dist/**"
+  - "!**/*.map"
+  - "!**/.DS_Store"
+
+npmRebuild: false
+electronDownload: {}
+
+mac:
+  category: public.app-category.productivity
+  hardenedRuntime: true
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  identity: null
+  darkModeSupport: false
+  target:
+    - target: dmg
+      arch: [arm64, x64]
+    - target: zip
+      arch: [arm64, x64]
+
+win:
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+    - target: portable
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Netscape Navigator
+
+linux:
+  category: Network;WebBrowser
+  maintainer: Netscape Navigator (Chromium Edition) <navigator@localhost>
+  synopsis: Netscape Navigator 3.04 Gold interface on Chromium
+  target:
+    - target: AppImage
+      arch: [x64, arm64]
+    - target: deb
+      arch: [x64, arm64]
+    - target: tar.gz
+      arch: [x64, arm64]
+  desktop:
+    entry:
+      MimeType: text/html;x-scheme-handler/http;x-scheme-handler/https;
+      StartupWMClass: netscape-navigator
+      Categories: Network;WebBrowser;
